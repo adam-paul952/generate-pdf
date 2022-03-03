@@ -1,0 +1,29 @@
+{
+  "name": "generatepdf",
+  "version": "1.0.0",
+  "description": "Generate PDF from MYSQL table",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "makePDF": "node createPDF.js"
+  },
+  "keywords": [
+    "Node",
+    "Express",
+    "PDFKit"
+  ],
+  "author": "Adam Paul",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-generator": "^4.16.1",
+    "mysql2": "^2.3.3",
+    "pdfkit": "^0.13.0",
+    "pdfkit-table": "^0.1.86"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
