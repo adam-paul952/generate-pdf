@@ -2,3 +2,7 @@
 
 .env
 
+*.pdf
+
+./nps_registered_ponies.json
+

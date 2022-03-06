@@ -12,7 +12,7 @@ exports.findAll = (req, res) => {
       });
     } else {
       const ponies = JSON.stringify(data);
-      fs.writeFileSync("nps_registered_ponies.json", ponies, (err) => {
+      fs.writeFileSync("nps_registered_ponies.js", ponies, (err) => {
         if (err) {
           console.log(err);
         } else {
