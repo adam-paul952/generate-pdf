@@ -112,19 +112,6 @@ module.exports = {
           "dam_reg_#": pony.dam_nps_reg_number,
         };
       })
-      //     [
-      //   {
-      //     status: "L",
-      //     name: "Adam",
-      //     "nps_id_#": "1",
-      //     DOB: "1/11/11",
-      //     sex: "M",
-      //     sire_name: "Jim",
-      //     "sire_reg_#": "22",
-      //     dam_name: "Mom",
-      //     "dam_reg_#": "2222",
-      //   },
-      // ]
     );
 
     pdf.end();
