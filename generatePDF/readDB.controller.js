@@ -1,5 +1,5 @@
-const createPDF = require("./createPDF");
-const createPDFTable = require("./createPDFTable");
+// const createPDF = require("./createPDF");
+// const createPDFTable = require("./createPDFTable");
 const fs = require("fs");
 const Pony = require("./readDb.model");
 
@@ -12,7 +12,7 @@ exports.findAll = (req, res) => {
       });
     } else {
       const ponies = JSON.stringify(data);
-      fs.writeFileSync("nps_registered_ponies.js", ponies, (err) => {
+      fs.writeFileSync("nps_registered_ponies.json", ponies, (err) => {
         if (err) {
           console.log(err);
         } else {

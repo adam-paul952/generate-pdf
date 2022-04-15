@@ -21,7 +21,9 @@
     "mysql2": "^2.3.3",
     "pdfkit": "^0.13.0",
     "pdfkit-table": "^0.1.86",
-    "voilab-pdf-table": "^0.5.1"
+    "pdfmake": "^0.2.5",
+    "voilab-pdf-table": "^0.5.1",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

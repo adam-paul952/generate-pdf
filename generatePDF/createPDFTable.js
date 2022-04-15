@@ -21,13 +21,20 @@ module.exports = {
     });
     const table = new PdfTable(pdf, {
       bottomMargin: 10,
+      fillColor: "#EFDEC7",
     });
 
-    pdf.pipe(fs.createWriteStream("testDocumentPlugin.pdf"));
+    pdf.pipe(fs.createWriteStream("./pages/newCoverDocument.pdf"));
 
-    pdf.image("./pages/PDFmainCover.png", {
+    //pdf.image("./pages/PDFmainCover.png", {
+    // cover: [pdf.page.width, pdf.page.height - 50],
+    //});
+
+    pdf.image("./pages/cover-resized-1.png", {
       cover: [pdf.page.width, pdf.page.height],
     });
+
+    // pdf.addPage().image("./pages/Intro.docx");
 
     table
       // add some plugins (here, a 'fit-to-width' for a column)
@@ -91,8 +98,10 @@ module.exports = {
         tb.addHeader();
       });
 
-    // if no page already exists in your PDF, do not forget to add one
-    pdf.addPage();
+    // // if no page already exists in your PDF, do not forget to add one
+    // pdf.image("./pages/cover-resized-1.png", {
+    //   cover: [pdf.page.width, pdf.page.height],
+    // });
 
     // draw content, by passing data to the addBody method
     table.addBody(
@@ -119,3 +128,8 @@ module.exports = {
     return pdf;
   },
 };
+
+/*
+ *
+ * solid beige background #eccebe
+ */
