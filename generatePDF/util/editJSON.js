@@ -4,20 +4,22 @@ const { checkPonyStatus, assignPonySex } = require("./helpers");
 
 const data = JSON.parse(ponies);
 
-const urlExists = (number) => {
-  let url = `https://newfoundlandpony.com/lineage/pictures/`;
-  let http = new XMLHttpRequest();
-  http.open("HEAD", `${url}${number}.jpg`, false);
-  http.send();
-  if (http.status !== 404) {
-    console.log(`Does Exist!!!!`, number);
-    return `${url}${number}.jpg`;
-  } else {
-    console.log(`Does not exist...`, number);
-    return null;
-  }
-};
+// Test if pony has photo by pinging the server
+// const urlExists = (number) => {
+//   let url = `https://newfoundlandpony.com/lineage/pictures/`;
+//   let http = new XMLHttpRequest();
+//   http.open("HEAD", `${url}${number}.jpg`, false);
+//   http.send();
+//   if (http.status !== 404) {
+//     console.log(`Does Exist!!!!`, number);
+//     return `${url}${number}.jpg`;
+//   } else {
+//     console.log(`Does not exist...`, number);
+//     return null;
+//   }
+// };
 
+// Array of pony numbers with photos
 const availablePhotos = [
   "871",
   "870",
@@ -47,6 +49,7 @@ const availablePhotos = [
   "423",
 ];
 
+// Assign Pony photo URL to pony IMG column
 const assignPhotoURL = (number) => {
   let url = ``;
   availablePhotos.forEach((photo) => {
@@ -58,6 +61,8 @@ const assignPhotoURL = (number) => {
   return url;
 };
 
+// Edit the data that comes from the API
+// Probably end up using this when the call from the DB is made
 const editData = data.map((pony) => {
   return {
     id: pony.id_number,
@@ -75,6 +80,7 @@ const editData = data.map((pony) => {
   };
 });
 
+// Write edited data to JSON file
 const writeNewFile = () => {
   let newList = JSON.stringify(editData);
   fs.writeFileSync("nps_registered_ponies_edited.json", newList, (err) => {

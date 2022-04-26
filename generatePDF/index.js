@@ -7,7 +7,7 @@ const app = express();
 const PORT = 8080;
 
 app.get("/", (req, res) => {
-  res.json({ message: `Success connection` });
+  res.json({ message: `Successful connection` });
 });
 
 require("./readDB.routes")(app);

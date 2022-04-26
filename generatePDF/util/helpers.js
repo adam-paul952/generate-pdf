@@ -1,3 +1,4 @@
+// Shorten pony status to fit in column
 const checkPonyStatus = (status) => {
   if (status === "Live") {
     return "L"; // Live
@@ -6,6 +7,7 @@ const checkPonyStatus = (status) => {
   }
 };
 
+// Shorten Sex of pony to fit into column
 const assignPonySex = (sex) => {
   switch (sex) {
     case "Mare":
@@ -23,4 +25,14 @@ const assignPonySex = (sex) => {
   }
 };
 
-module.exports = { checkPonyStatus, assignPonySex };
+// If pony has photo associated from DB assign camera image in IMG column
+const checkPhotoStatus = (string) => {
+  if (string === "") {
+    return string;
+  } else {
+    string = "./assets/camera.png";
+  }
+  return string;
+};
+
+module.exports = { checkPonyStatus, assignPonySex, checkPhotoStatus };

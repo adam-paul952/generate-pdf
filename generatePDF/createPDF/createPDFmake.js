@@ -1,23 +1,20 @@
 const fs = require("fs");
 const Pdfmake = require("pdfmake");
 
+const { table } = require("./createTable.js");
+const { fonts } = require("../constants/fonts.js");
+const { columnNames } = require("../constants/columnNames.js");
+
 const ponies = fs.readFileSync("./nps_registered_ponies_edited.json");
 
 const data = JSON.parse(ponies);
 
+// Arrange the ponies by NPS descending
 let arrangedData = data.sort((a, b) => {
   return b["nps#"] - a["nps#"];
 });
 
-const checkPhotoStatus = (string) => {
-  if (string === "") {
-    return string;
-  } else {
-    string = "./assets/camera.png";
-  }
-  return string;
-};
-
+// Assign pony data to enter into the table
 const sortedData = arrangedData.map((pony) => {
   return {
     Status: pony.status,
@@ -38,149 +35,6 @@ const sortedData = arrangedData.map((pony) => {
   };
 });
 
-const fonts = {
-  Roboto: {
-    normal: "fonts/roboto/Roboto-Regular.ttf",
-    bold: "fonts/roboto/Roboto-Medium.ttf",
-    italics: "fonts/roboto/Roboto-Italic.ttf",
-    bolditalics: "fonts/roboto/Roboto-MediumItalic.ttf",
-  },
-};
-
-function buildTableBody(data, columns) {
-  const body = [
-    [
-      {
-        text: "Registered Newfoundland Pony",
-        alignment: "center",
-        colSpan: 6,
-        border: [false, false, true, true],
-      },
-      {},
-      {},
-      {},
-      {},
-      {},
-      {
-        text: "Sire",
-        alignment: "center",
-        colSpan: 2,
-        border: [false, false, true, true],
-      },
-      {},
-      {
-        text: "Dam",
-        alignment: "center",
-        colSpan: 2,
-        border: [true, false, true, true],
-      },
-      {},
-      {
-        text: "Location",
-        rowSpan: 2,
-        margin: [0, 8, 0, 0],
-        border: [true, false, true, true],
-        alignment: "center",
-      },
-    ],
-    [
-      {
-        text: "Status",
-        // margin: [0, 8, 0, 0],
-        //        L   ,   T   ,  R   ,  B
-        border: [false, false, false, true],
-        alignment: "center",
-      },
-      { text: "NPS#", border: [true, true, true, true], alignment: "center" },
-      {
-        text: "Name",
-        border: [true, true, true, true],
-        alignment: "center",
-      },
-      {
-        text: "Img",
-        border: [true, true, true, true],
-        alignment: "center",
-      },
-      { text: "DOB", border: [true, true, true, true], alignment: "center" },
-      {
-        text: "Sex",
-        // margin: [0, 8, 0, 0],
-        border: [true, false, true, true],
-        alignment: "center",
-      },
-      { text: "Name", border: [true, true, true, true], alignment: "center" },
-      { text: "NPS#", border: [true, true, true, true], alignment: "center" },
-      { text: "Name", border: [true, true, true, true], alignment: "center" },
-      { text: "NPS#", border: [true, true, true, true], alignment: "center" },
-      {},
-    ],
-  ];
-
-  data.forEach((row) => {
-    let dataRow = [];
-
-    columns.forEach((col) => {
-      if (col === "Img") {
-        const string = checkPhotoStatus(row[col]);
-        if (string === "") {
-          dataRow.push({ text: row[col] });
-        } else {
-          dataRow.push({
-            image: string,
-            width: 20,
-            height: 20,
-            alignment: "center",
-            link: row[col],
-          });
-        }
-      } else {
-        dataRow.push({ text: row[col], alignment: "center" });
-      }
-    });
-    body.push(dataRow);
-  });
-  return body;
-}
-
-function table(data, columns) {
-  return {
-    table: {
-      headerRows: 2,
-      body: buildTableBody(data, columns),
-      dontBreakRows: true,
-    },
-    layout: {
-      hLineColor: function (i, node) {
-        return i === 0 || i === node.table.body.length
-          ? "lightgrey"
-          : "lightgrey";
-      },
-      vLineColor: function (i, node) {
-        return i === 0 || i === node.table.widths.length
-          ? "lightgrey"
-          : "lightgrey";
-      },
-      margin: [0, 0, 0, 0],
-      alignment: "center",
-    },
-  };
-}
-
-const columnNames = [
-  "Status",
-  "NPS#",
-  "Name",
-  "Img",
-  "DOB",
-  "Sex",
-  "SName",
-  "SNPS#",
-  "DName",
-  "DNPS#",
-  "Location",
-];
-
 let pdfmake = new Pdfmake(fonts);
 
 let listTableDocs = {
@@ -198,6 +52,7 @@ let listTableDocs = {
           //       l   T   R  B
           margin: [70, 0, 70, 0],
           background: "#EFDEC7",
+          // This page will be removed once PDF is approved
           stack: [
             {
               text: "\n\n\nIntroduction to the Newfoundland Pony Society Annual Herdbook 2021",
@@ -273,13 +128,11 @@ let listTableDocs = {
     },
     table(sortedData, columnNames),
   ],
-  // defaultStyle: {},
   pageSize: "letter",
   defaultStyle: {
     fontSize: 10,
     fillColor: "#EFDEC7",
     backgroundColor: "#EFDEC7",
-    // alignment: "center",
   },
   styles: {
     header: {
