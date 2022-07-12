@@ -1,9 +1,22 @@
-const { buildTableBody } = require("./createPDF/buildTableBody.js");
+const { buildTableBody } = require("./buildTableBody.js");
 
 const table = (data, columns) => {
   return {
     table: {
       headerRows: 2,
+      widths: [
+        "auto",
+        "auto",
+        "auto",
+        "auto",
+        54,
+        "auto",
+        "auto",
+        "auto",
+        "auto",
+        "auto",
+        "auto",
+      ],
       body: buildTableBody(data, columns),
       dontBreakRows: true,
     },

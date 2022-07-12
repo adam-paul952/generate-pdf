@@ -9,7 +9,7 @@ const columnNames = [
   "SNPS#",
   "DName",
   "DNPS#",
-  "Location",
+  "Loc",
 ];
 
 module.exports = { columnNames };

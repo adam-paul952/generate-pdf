@@ -61,6 +61,16 @@ const assignPhotoURL = (number) => {
   return url;
 };
 
+const formatLocationString = (string) => {
+  if (string === "") return "";
+  return string.substr(0, 2);
+};
+
+const formatNPSNumber = (string) => {
+  if (string.length < 2) return;
+  return string.substr(0, 3);
+};
+
 // Edit the data that comes from the API
 // Probably end up using this when the call from the DB is made
 const editData = data.map((pony) => {
@@ -68,7 +78,7 @@ const editData = data.map((pony) => {
     id: pony.id_number,
     image: assignPhotoURL(pony.pony_nps_id_number),
     status: checkPonyStatus(pony.pony_status),
-    "nps#": pony.pony_nps_id_number,
+    "nps#": formatNPSNumber(pony.pony_nps_id_number),
     name: pony.pony_name, // ../`${"NPS#"}.jpg`
     dob: pony.pony_date_of_birth,
     sex: assignPonySex(pony.pony_sex),
@@ -76,7 +86,7 @@ const editData = data.map((pony) => {
     "snps#": pony.sire_nps_reg_number,
     dname: pony.dam_name,
     "dnps#": pony.dam_nps_reg_number,
-    location: pony.Location,
+    location: formatLocationString(pony.Location),
   };
 });
 

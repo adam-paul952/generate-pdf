@@ -1,8 +1,8 @@
-const { checkPhotoStatus } = require("./helpers.js");
+const { checkPhotoStatus } = require("../util/helpers");
 
 const buildTableBody = (data, columns) => {
   const body = [
-    // First Array if for Top-Level headers
+    // First Array is for Top-Level headers
     [
       {
         text: "Registered Newfoundland Pony",
@@ -30,7 +30,7 @@ const buildTableBody = (data, columns) => {
       },
       {},
       {
-        text: "Location",
+        text: "Loc",
         rowSpan: 2,
         margin: [0, 8, 0, 0],
         border: [true, false, true, true],
@@ -86,15 +86,23 @@ const buildTableBody = (data, columns) => {
         } else {
           dataRow.push({
             image: string,
-            width: 20,
-            height: 20,
+            width: 15,
+            height: 15,
             alignment: "center",
             link: row[col],
           });
         }
-      } else {
+      } else if (
+        col === "Status" ||
+        col === "NPS#" ||
+        col === "Sex" ||
+        col === "SNPS#" ||
+        col === "DNPS#"
+      ) {
         // If column !== "Img", we push the data for that column
         dataRow.push({ text: row[col], alignment: "center" });
+      } else {
+        dataRow.push({ text: row[col], alignment: "left" });
       }
     });
     body.push(dataRow);

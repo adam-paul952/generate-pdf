@@ -31,13 +31,28 @@ const sortedData = arrangedData.map((pony) => {
     "SNPS#": pony["snps#"],
     DName: pony.dname,
     "DNPS#": pony["dnps#"],
-    Location: pony.location,
+    Loc: pony.location,
   };
 });
 
 let pdfmake = new Pdfmake(fonts);
 
 let listTableDocs = {
+  // Function to color all parts of document not covered by Table/Text/CoverImage
+  background: () => {
+    return {
+      canvas: [
+        {
+          type: "rect",
+          x: 0,
+          y: 0,
+          w: 612,
+          h: 792,
+          color: "#EFDEC7",
+        },
+      ],
+    };
+  },
   pageMargins: { top: 0, bottom: 0, left: 0, right: 0 },
   content: [
     {
@@ -72,22 +87,28 @@ let listTableDocs = {
               text: [
                 "The Herdbook is mandated by the recently established Registrar’s Manual [found on ",
                 "this website] and includes all ponies registered to December 31, 2021 ending with ",
-                "Registration Number 952. It is compiled from the most recent Lineage Report with the ",
-                "addition of information from The Newfoundland Pony Society records. The newest ",
-                "features include the last known location of each pony by Province or State and Country ",
+                "Registration Number 952.\n\n",
+              ],
+            },
+            {
+              text: [
+                "It is compiled from the most recent Lineage Report with the addition of information ",
+                "from The Newfoundland Pony Society records. The newest features include the last ",
+                "known location of each pony by Province or State and Country as of December 31, 2021 ",
                 "and virtual access to a photograph of the pony as available in cooperation with the ",
-                "owner or former owner. Ancestry and Descendant tables are also accessible from the ",
-                "Herdbook.\n\n",
+                "owner or former owner. Ancestry Family Trees accessible directly from the Herdbook by ",
+                "clicking on the pony's name and Descendant tables can be accessed from the Lineage Report",
+                "on the website.\n\n",
               ],
             },
             {
               text: [
                 "We believe that the Herdbook will become an important tool in pursuit of the Society's ",
                 "mandate to Promote, Preserve, and Protect the Newfoundland Pony. It will provide a ",
-                "point-in-time compendium of information on the state of the breed and aid in research; ",
-                "provide support and information for breeders, and to individual owners seeking to breed ",
-                "their pony; and, be of interest to horse and pony lovers everywhere, particularly ",
-                "Newfoundland Pony lovers.\n\n",
+                "point-in-time compendium of information on the state of the breed and aid in research. ",
+                "It will also provide support and information provide support and information for breeders and ",
+                "individual owners seeking to breed their pony and be of interest to horse and ",
+                "pony lovers everywhere, particularly Newfoundland Pony lovers.\n\n",
               ],
             },
             {
@@ -105,8 +126,8 @@ let listTableDocs = {
                 "[IMORTANT NOTE: This Edition of the Herdbook is labelled Preliminary, as we know ",
                 "that our current information on the location of a particular pony may not be accurate, ",
                 "since pony owners may not have notified the Society of a transfer or sale of a ",
-                "Registered Pony. Similarly with the death of a Registered Pony. If you have information ",
-                "as to the location or status of a pony inconsistent with the information here, ",
+                "Registered Pony. Similarly with the death or gelding of a Registered Pony. If you have information ",
+                "as to the location or status of a pony as of December 31, 2021, inconsistent with the information here, ",
                 "please notify the Registrar, Kelly-Power Kean at ",
                 { text: "registrar@newfoundlandpony.com", style: "link" },
                 ". After a suitable period to allow for corrections, we will remove the Preliminary designation.]",
@@ -151,5 +172,5 @@ let listTableDocs = {
 };
 
 pdfDoc = pdfmake.createPdfKitDocument(listTableDocs, {});
-pdfDoc.pipe(fs.createWriteStream("pdfs/nps_herdbook_redo.pdf"));
+pdfDoc.pipe(fs.createWriteStream("pdfs/nps_herdbook_revised_07_12_22.pdf"));
 pdfDoc.end();
