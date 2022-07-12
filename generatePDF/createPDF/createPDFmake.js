@@ -106,9 +106,9 @@ let listTableDocs = {
                 "We believe that the Herdbook will become an important tool in pursuit of the Society's ",
                 "mandate to Promote, Preserve, and Protect the Newfoundland Pony. It will provide a ",
                 "point-in-time compendium of information on the state of the breed and aid in research. ",
-                "It will also provide support and information provide support and information for breeders and ",
-                "individual owners seeking to breed their pony and be of interest to horse and ",
-                "pony lovers everywhere, particularly Newfoundland Pony lovers.\n\n",
+                "It will also provide support and information for breeders and individual owners ",
+                "seeking to breed their pony and be of interest to horse and pony lovers everywhere, ",
+                "particularly Newfoundland Pony lovers.\n\n",
               ],
             },
             {
