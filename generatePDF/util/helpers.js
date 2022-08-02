@@ -1,3 +1,5 @@
+const { availablePhotos } = require("./constants");
+
 // Shorten pony status to fit in column
 const checkPonyStatus = (status) => {
   if (status === "Live") {
@@ -35,4 +37,34 @@ const checkPhotoStatus = (string) => {
   return string;
 };
 
-module.exports = { checkPonyStatus, assignPonySex, checkPhotoStatus };
+// Format NPS number if duplicate numbers added
+const formatNPSNumber = (string) => {
+  if (string.length < 2) return string;
+  return string.substr(0, 3);
+};
+
+// Assign Pony photo URL to pony IMG column
+const assignPhotoURL = (number) => {
+  let url = ``;
+  availablePhotos.forEach((photo) => {
+    if (photo === number) {
+      // console.log(`Does exist!!!`, number);
+      url = `https://newfoundlandpony.com/lineage/pictures/${number}.jpg`;
+    }
+  });
+  return url;
+};
+
+const formatLocationString = (string) => {
+  if (string === "") return "";
+  return string.substr(0, 2);
+};
+
+module.exports = {
+  checkPonyStatus,
+  assignPonySex,
+  checkPhotoStatus,
+  formatNPSNumber,
+  assignPhotoURL,
+  formatLocationString,
+};

@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
   res.json({ message: `Successful connection` });
 });
 
-require("./readDB.routes")(app);
+require("./db/readDB.routes")(app);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

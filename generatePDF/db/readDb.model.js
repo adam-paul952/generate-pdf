@@ -13,6 +13,7 @@ const Pony = function (pony) {
   this.sire_registrar_name = pony.sire_registrar_name;
   this.dam_name = pony.dam_name;
   this.dam_nps_reg_number = pony.dam_nps_reg_number;
+  this.location = pony.Location;
 };
 
 Pony.getAll = (result) => {
