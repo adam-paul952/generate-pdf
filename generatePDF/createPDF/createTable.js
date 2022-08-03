@@ -15,7 +15,7 @@ const table = (data, columns) => {
         "auto",
         "auto",
         "auto",
-        "auto",
+        23,
       ],
       body: buildTableBody(data, columns),
       dontBreakRows: true,

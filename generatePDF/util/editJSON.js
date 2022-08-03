@@ -33,7 +33,7 @@ const editData = (data) =>
       id: pony.id_number,
       image: assignPhotoURL(pony.pony_nps_id_number),
       status: checkPonyStatus(pony.pony_status),
-      "nps#": formatNPSNumber(pony.pony_nps_id_number),
+      "nps#": pony.pony_nps_id_number,
       name: pony.pony_name, // ../`${"NPS#"}.jpg`
       dob: pony.pony_date_of_birth,
       sex: assignPonySex(pony.pony_sex),

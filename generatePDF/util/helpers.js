@@ -57,6 +57,7 @@ const assignPhotoURL = (number) => {
 
 const formatLocationString = (string) => {
   if (string === "") return "";
+  if (string === "UNC") return "UNC";
   return string.substr(0, 2);
 };
 

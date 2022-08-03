@@ -4,8 +4,11 @@ const Pdfmake = require("pdfmake");
 const { table } = require("./createTable.js");
 const { fonts } = require("../constants/fonts.js");
 const { columnNames } = require("../constants/columnNames.js");
+const { formatNPSNumber } = require("../util/helpers");
 
 const { editData } = require("../util/editJSON");
+
+const moment = require("moment");
 
 // const ponies = fs.readFileSync("./nps_registered_ponies_edited.json");
 
@@ -29,7 +32,7 @@ const createPDF = (data) => {
           link: `https://www.newfoundlandpony.com/lineage/pony_family_tree_v2.php?pony_nps_id_number=${pony["nps#"]}`,
           style: "link",
         },
-        "NPS#": pony["nps#"],
+        "NPS#": formatNPSNumber(pony["nps#"]),
         SName: pony.sname,
         "SNPS#": pony["snps#"],
         DName: pony.dname,
@@ -97,9 +100,9 @@ const createPDF = (data) => {
                 text: [
                   "It is compiled from the most recent Lineage Report with the addition of information ",
                   "from The Newfoundland Pony Society records. The newest features include the last ",
-                  "known location of each pony by Province or State and Country as of December 31, 2021 ",
+                  "known location of each pony by Province or State as of December 31, 2021 ",
                   "and virtual access to a photograph of the pony as available in cooperation with the ",
-                  "owner or former owner. Ancestry Family Trees accessible directly from the Herdbook by ",
+                  "owner or former owner. Ancestry Family Trees are accessible directly from the Herdbook by ",
                   "clicking on the pony's name and Descendant tables can be accessed from the Lineage Report ",
                   "on the website.\n\n",
                 ],
@@ -126,12 +129,12 @@ const createPDF = (data) => {
               },
               {
                 text: [
-                  "[IMORTANT NOTE: This Edition of the Herdbook is labelled Preliminary, as we know ",
+                  "[IMORTANT NOTE: This Edition of the Herdbook is labelled Preliminary, since we know ",
                   "that our current information on the location of a particular pony may not be accurate, ",
-                  "since pony owners may not have notified the Society of a transfer or sale of a Registered Pony. ",
+                  "as pony owners may not have notified the Society of a transfer or sale of a Registered Pony. ",
                   "Location listed as UNC means we are uncertain as to the current location of the pony. ",
                   "Similarly with the death or gelding of a Registered Pony. If you have information ",
-                  "as to the location or status of a pony as of December 31, 2021, inconsistent with the information here, ",
+                  "as to the location or status of a pony as of December 31, 2021, or inconsistent with the information here, ",
                   "please notify the Registrar, Kelly-Power Kean at ",
                   { text: "registrar@newfoundlandpony.com", style: "link" },
                   ". After a suitable period to allow for corrections, we will remove the Preliminary designation.]",
@@ -222,26 +225,17 @@ const createPDF = (data) => {
     },
   };
 
+  const currentDatetime = moment().format("DD-MM-YY");
+
   pdfDoc = pdfmake.createPdfKitDocument(listTableDocs, {});
-  pdfDoc.pipe(fs.createWriteStream("pdfs/nps_herdbook_revised_08_02_22.pdf"));
+  pdfDoc.pipe(
+    fs.createWriteStream(`pdfs/nps_herdbook_revised_${currentDatetime}.pdf`)
+  );
   pdfDoc.end();
 
-  const current_datetime = new Date();
   console.log(`----------`);
   console.log(`PDF has been created! :)`);
-  console.log(
-    current_datetime.getFullYear() +
-      "-" +
-      (current_datetime.getMonth() + 1) +
-      "-" +
-      current_datetime.getDate() +
-      " " +
-      current_datetime.getHours() +
-      ":" +
-      current_datetime.getMinutes() +
-      ":" +
-      current_datetime.getSeconds()
-  );
+  console.log(currentDatetime);
 };
 
 exports.createPDF = createPDF;

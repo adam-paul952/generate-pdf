@@ -26,15 +26,14 @@ const buildTableBody = (data, columns) => {
         text: "Dam",
         alignment: "center",
         colSpan: 2,
-        border: [true, false, true, true],
+        border: [true, false, false, false],
       },
       {},
       {
-        text: "Loc",
-        rowSpan: 2,
-        margin: [0, 8, 0, 0],
-        border: [true, false, true, true],
-        alignment: "center",
+        text: "",
+        // margin: [0, 16, 0, 0],
+        // border: [true, true, true, true],
+        // alignment: "center",
       },
     ],
     // Second array is for lower-level headers
@@ -68,7 +67,11 @@ const buildTableBody = (data, columns) => {
       { text: "NPS#", border: [true, true, true, true], alignment: "center" },
       { text: "Name", border: [true, true, true, true], alignment: "center" },
       { text: "NPS#", border: [true, true, true, true], alignment: "center" },
-      {},
+      {
+        text: "Loc",
+        border: [true, true, true, true],
+        alignment: "center",
+      },
     ],
   ];
 
