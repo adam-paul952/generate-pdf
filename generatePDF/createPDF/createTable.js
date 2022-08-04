@@ -1,22 +1,25 @@
+/**
+ * @file createTable.js
+ * @description Defines the layout for the table to be created
+ * @module table
+ */
+
+const { columnWidths } = require("../constants/columns.js");
 const { buildTableBody } = require("./buildTableBody.js");
+
+/**
+ *
+ * @param { PonyList[] } data
+ * @param { string[] } columns
+ * @returns The created table for the PDF document
+ * @returns Layout - assigns colors for the borders of the columns
+ */
 
 const table = (data, columns) => {
   return {
     table: {
       headerRows: 2,
-      widths: [
-        "auto",
-        "auto",
-        "auto",
-        "auto",
-        54,
-        "auto",
-        "auto",
-        "auto",
-        "auto",
-        "auto",
-        23,
-      ],
+      widths: columnWidths,
       body: buildTableBody(data, columns),
       dontBreakRows: true,
     },
@@ -37,4 +40,4 @@ const table = (data, columns) => {
   };
 };
 
-module.exports = { table };
+exports.table = table;

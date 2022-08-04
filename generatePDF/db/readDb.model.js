@@ -1,6 +1,15 @@
 const sql = require("./db");
 
-const Pony = function (pony) {
+/**
+ * @file readDB.model.js
+ * @description Handle logic for modelling a Pony object as well as queries to DB
+ * @module Pony
+ */
+
+/**
+ * Constructor for Pony object
+ */
+const Pony = (pony) => {
   this.id_number = pony.id_number;
   this.pony_status = pony.pony_status;
   this.pony_nps_id_number = pony.pony_nps_id_number;
@@ -16,6 +25,12 @@ const Pony = function (pony) {
   this.location = pony.Location;
 };
 
+/**
+ * Method to query DB for Pony information
+ * @returns error if there is an error
+ * @returns result from DB
+ */
+
 Pony.getAll = (result) => {
   sql.query(`SELECT * from family_tree`, (err, res) => {
     if (err) {
@@ -27,4 +42,4 @@ Pony.getAll = (result) => {
   });
 };
 
-module.exports = Pony;
+exports.Pony = Pony;

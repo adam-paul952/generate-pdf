@@ -1,93 +1,46 @@
+/**
+ * @file buildTableBody.js
+ * @description Builds the content for the PDF tables containing all Pony data
+ * @module buildTableBody
+ */
+
 const { checkPhotoStatus } = require("../util/helpers");
+const { topHeader, bottomHeader } = require("./tableHeader");
 
-const buildTableBody = (data, columns) => {
-  const body = [
-    // First Array is for Top-Level headers
-    [
-      {
-        text: "Registered Newfoundland Pony",
-        alignment: "center",
-        colSpan: 6,
-        border: [false, false, true, true],
-      },
-      {},
-      {},
-      {},
-      {},
-      {},
-      {
-        text: "Sire",
-        alignment: "center",
-        colSpan: 2,
-        border: [false, false, true, true],
-      },
-      {},
-      {
-        text: "Dam",
-        alignment: "center",
-        colSpan: 2,
-        border: [true, false, false, false],
-      },
-      {},
-      {
-        text: "",
-        // margin: [0, 16, 0, 0],
-        // border: [true, true, true, true],
-        // alignment: "center",
-      },
-    ],
-    // Second array is for lower-level headers
-    [
-      {
-        text: "Status",
-        // margin: [0, 8, 0, 0],
-        //        L   ,   T   ,  R   ,  B
-        border: [false, false, false, true],
-        alignment: "center",
-      },
-      { text: "NPS#", border: [true, true, true, true], alignment: "center" },
-      {
-        text: "Name",
-        border: [true, true, true, true],
-        alignment: "center",
-      },
-      {
-        text: "Img",
-        border: [true, true, true, true],
-        alignment: "center",
-      },
-      { text: "DOB", border: [true, true, true, true], alignment: "center" },
-      {
-        text: "Sex",
-        // margin: [0, 8, 0, 0],
-        border: [true, false, true, true],
-        alignment: "center",
-      },
-      { text: "Name", border: [true, true, true, true], alignment: "center" },
-      { text: "NPS#", border: [true, true, true, true], alignment: "center" },
-      { text: "Name", border: [true, true, true, true], alignment: "center" },
-      { text: "NPS#", border: [true, true, true, true], alignment: "center" },
-      {
-        text: "Loc",
-        border: [true, true, true, true],
-        alignment: "center",
-      },
-    ],
-  ];
+/**
+ * Used to build the PDF table body with columns and Registered Pony Information
+ * @param { !PonyList } ponyList List of pony data from the DB
+ * @param { !string [] } columnNames String [] of column names
+ * @returns { string[] } Array of string [] to populate each row with pony information
+ * @returns ||
+ * @returns {import("./tableHeader").tableRow} tableRow[]
+ */
 
-  data.forEach((row) => {
-    let dataRow = [];
+const buildTableBody = (ponyList, columnNames) => {
+  const body = [topHeader, bottomHeader];
 
-    columns.forEach((col) => {
+  ponyList.forEach((row) => {
+    /**
+     * @const tableRow
+     * @type {import('./tableHeader').tableRow}
+     * @description Using table row is fine using only a string as a column value
+     * @examples ["Name", "Age", ...]
+     * @examples OR
+     * @examples [{ text: "Name", alignment: "center" }, ...]
+     */
+
+    const tableRow = [];
+
+    columnNames.forEach((col) => {
       // If column is === "Img", and the pony has a photo listed
       // we assign the camera image with the link for the URL
       // else we just push an empty string into column
       if (col === "Img") {
         const string = checkPhotoStatus(row[col]);
         if (string === "") {
-          dataRow.push({ text: row[col] });
+          tableRow.push({ text: row[col] });
         } else {
-          dataRow.push({
+          tableRow.push({
             image: string,
             width: 15,
             height: 15,
@@ -95,6 +48,8 @@ const buildTableBody = (data, columns) => {
             link: row[col],
           });
         }
+        // If column !== "Img", we push the data for that column
+        // Client wanted these columns centered
       } else if (
         col === "Status" ||
         col === "NPS#" ||
@@ -102,15 +57,17 @@ const buildTableBody = (data, columns) => {
         col === "SNPS#" ||
         col === "DNPS#"
       ) {
-        // If column !== "Img", we push the data for that column
-        dataRow.push({ text: row[col], alignment: "center" });
+        tableRow.push({ text: row[col], alignment: "center" });
+        // Remainder of columns are left aligned
       } else {
-        dataRow.push({ text: row[col], alignment: "left" });
+        tableRow.push({ text: row[col], alignment: "left" });
       }
     });
-    body.push(dataRow);
+
+    body.push(tableRow);
   });
+
   return body;
 };
 
-module.exports = { buildTableBody };
+exports.buildTableBody = buildTableBody;
