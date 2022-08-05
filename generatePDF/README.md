@@ -74,3 +74,11 @@ The created PDF will be saved to the ./pdfs file in the root directory.
 ## Updating the Available Photos Array
 
 There's no need to update the available photos array manually. I've included a scraper function that returns all `View Image` buttons from the lineage page, and formats the href into link provided to the PDF.
+
+---
+
+## Documentation
+
+<br>
+
+[Link for the documentation](https://adam-paul952.github.io/generatepdf-docs/)
