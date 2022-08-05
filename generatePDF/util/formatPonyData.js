@@ -28,15 +28,16 @@ const {
 
 /**
  * Formats the pony data that's provided
- * @param {PonyList} ponyList
- * @returns {PonyList[]} formatted data for Ponies
+ * @param { PonyList } ponyList
+ * @param { string[] } availablePhotos
+ * @returns { PonyList[] } formatted data for Ponies
  */
 
-const formatPonyData = (ponyList) =>
+const formatPonyData = (ponyList, availablePhotos) =>
   ponyList.map((pony) => {
     return {
       id: pony.id_number,
-      image: assignPhotoURL(pony.pony_nps_id_number),
+      image: assignPhotoURL(pony.pony_nps_id_number, availablePhotos),
       status: checkPonyStatus(pony.pony_status),
       "nps#": pony.pony_nps_id_number,
       name: pony.pony_name,

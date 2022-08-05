@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>util/formatPonyData.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/adam-paul952/generate-pdf/tree/master/generatePDF" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Modules</h3><ul><li><a href="abbreviationPage.module_js.html">abbreviationPage.js</a></li><li><a href="documentName.module_js.html">documentName.js</a></li><li><a href="introductionPage.module_js.html">introductionPage.js</a></li><li><a href="module-app.html">app</a></li><li><a href="module-buildTableBody.html">buildTableBody</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-buildTableBody.html#~buildTableBody">buildTableBody</a></li></ul></li><li><a href="module-columnInfo.html">columnInfo</a></li><li><a href="module-connection.html">connection</a></li><li><a href="module-createPDF.html">createPDF</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-createPDF.html#~createPDF">createPDF</a></li></ul></li><li><a href="module-findAll.html">findAll</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-findAll.html#.findAll">findAll</a></li></ul></li><li><a href="module-Pony.html">Pony</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Pony.html#~Pony">Pony</a></li></ul></li><li><a href="module-table.html">table</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-table.html#~table">table</a></li></ul></li><li><a href="module-tableHeader.html">tableHeader</a></li><li><a href="util_formatPonyData.module_js.html">util/formatPonyData.js</a><ul class='methods'><li data-type='method' style='display: none;'><a href="util_formatPonyData.module_js.html#~formatPonyData">formatPonyData</a></li></ul></li><li><a href="util_helpers.module_js.html">util/helpers.js</a><ul class='methods'><li data-type='method' style='display: none;'><a href="util_helpers.module_js.html#~assignPhotoURL">assignPhotoURL</a></li><li data-type='method' style='display: none;'><a href="util_helpers.module_js.html#~assignPonySex">assignPonySex</a></li><li data-type='method' style='display: none;'><a href="util_helpers.module_js.html#~checkPhotoStatus">checkPhotoStatus</a></li><li data-type='method' style='display: none;'><a href="util_helpers.module_js.html#~checkPonyStatus">checkPonyStatus</a></li><li data-type='method' style='display: none;'><a href="util_helpers.module_js.html#~formatLocationString">formatLocationString</a></li><li data-type='method' style='display: none;'><a href="util_helpers.module_js.html#~formatNPSNumber">formatNPSNumber</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">util/formatPonyData.js</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="util_formatPonyData.js.html">util/formatPonyData.js</a>, <a href="util_formatPonyData.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+            
+                <div class="description usertext"><p>formatPonyData.js</p></div>
+            
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="~formatPonyData"><span class="type-signature">(inner) </span>formatPonyData<span class="signature">(ponyList, availablePhotos)</span><span class="type-signature"> &rarr; {Array.&lt;PonyList>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="util_formatPonyData.js.html">util/formatPonyData.js</a>, <a href="util_formatPonyData.js.html#line36">line 36</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Formats the pony data that's provided</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ponyList</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">PonyList</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>availablePhotos</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>formatted data for Ponies</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;PonyList></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        
+                
+<h4 class="name" id="~PonyList">PonyList</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="util_formatPonyData.js.html">util/formatPonyData.js</a>, <a href="util_formatPonyData.js.html#line6">line 6</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>DB ID of pony - not used in formatting data</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>status</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Status of the Pony - Deceased || Live</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>nps#</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>NPS Number of Registered Pony</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Name of Registered Pony</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dob</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Date of Birth of Registered Pony</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sex</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Sex of Registered Pony</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>image</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Image url of Registered Pony if provided</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sname</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Sire Name of Registered Pony</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>snps#</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Sire NPS Number</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dname</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Dam Name of Registered Pony</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dnps#</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Dam NPS Number</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>location</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Location of Registered Pony</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Thu Aug 04 2022 21:55:33 GMT-0230 (Newfoundland Daylight Saving Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>

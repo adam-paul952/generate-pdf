@@ -1,8 +1,7 @@
 /**
  * @file columns.js
  * @description Column Names Displaying in the PDF document
- * @module columnNames
- * @module columnWidths
+ * @module columnInfo
  */
 
 /**
@@ -27,7 +26,7 @@ const columnNames = [
 
 /**
  * @const columnWidths
- * @type { (string | number) [] }
+ * @type { Array.<string | number> }
  * @description Array containing values of the widths of all columns within the table
  */
 

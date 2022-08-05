@@ -5,15 +5,13 @@
  */
 
 const { checkPhotoStatus } = require("../util/helpers");
-const { topHeader, bottomHeader } = require("./tableHeader");
+const { topHeader, bottomHeader, tableRow } = require("./tableHeader");
 
 /**
  * Used to build the PDF table body with columns and Registered Pony Information
  * @param { !PonyList } ponyList List of pony data from the DB
- * @param { !string [] } columnNames String [] of column names
- * @returns { string[] } Array of string [] to populate each row with pony information
- * @returns ||
- * @returns {import("./tableHeader").tableRow} tableRow[]
+ * @param { !string[] } columnNames String [] of column names
+ * @returns { (string[] | tableRow[]) } Array of string [] to populate each row with pony information
  */
 
 const buildTableBody = (ponyList, columnNames) => {
@@ -22,7 +20,7 @@ const buildTableBody = (ponyList, columnNames) => {
   ponyList.forEach((row) => {
     /**
      * @const tableRow
-     * @type {import('./tableHeader').tableRow}
+     * @type {tableRow}
      * @description Using table row is fine using only a string as a column value
      * @examples ["Name", "Age", ...]
      * @examples OR

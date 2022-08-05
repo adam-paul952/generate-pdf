@@ -5,28 +5,28 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js",
-    "makePDF": "node ./createPDF/createPDFmake.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "generate-docs": "jsdoc -c ./jsdocConfig.json"
   },
   "keywords": [
     "Node",
     "Express",
-    "PDFKit"
+    "PDFMake"
   ],
   "author": "Adam Paul",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.12",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "moment": "^2.29.4",
     "mysql2": "^2.3.3",
-    "pdfkit": "^0.13.0",
-    "pdfkit-table": "^0.1.86",
-    "pdfmake": "^0.2.5",
-    "voilab-pdf-table": "^0.5.1",
-    "xmlhttprequest": "^1.8.0"
+    "pdfmake": "^0.2.5"
   },
   "devDependencies": {
+    "docdash": "^1.2.0",
     "jsdoc": "^3.6.11",
     "nodemon": "^2.0.15"
   }

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>pages/introduction.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/adam-paul952/generate-pdf/tree/master/generatePDF" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Modules</h3><ul><li><a href="abbreviationPage.module_js.html">abbreviationPage.js</a></li><li><a href="documentName.module_js.html">documentName.js</a></li><li><a href="introductionPage.module_js.html">introductionPage.js</a></li><li><a href="module-app.html">app</a></li><li><a href="module-buildTableBody.html">buildTableBody</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-buildTableBody.html#~buildTableBody">buildTableBody</a></li></ul></li><li><a href="module-columnInfo.html">columnInfo</a></li><li><a href="module-connection.html">connection</a></li><li><a href="module-createPDF.html">createPDF</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-createPDF.html#~createPDF">createPDF</a></li></ul></li><li><a href="module-findAll.html">findAll</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-findAll.html#.findAll">findAll</a></li></ul></li><li><a href="module-Pony.html">Pony</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Pony.html#~Pony">Pony</a></li></ul></li><li><a href="module-table.html">table</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-table.html#~table">table</a></li></ul></li><li><a href="module-tableHeader.html">tableHeader</a></li><li><a href="util_formatPonyData.module_js.html">util/formatPonyData.js</a><ul class='methods'><li data-type='method' style='display: none;'><a href="util_formatPonyData.module_js.html#~formatPonyData">formatPonyData</a></li></ul></li><li><a href="util_helpers.module_js.html">util/helpers.js</a><ul class='methods'><li data-type='method' style='display: none;'><a href="util_helpers.module_js.html#~assignPhotoURL">assignPhotoURL</a></li><li data-type='method' style='display: none;'><a href="util_helpers.module_js.html#~assignPonySex">assignPonySex</a></li><li data-type='method' style='display: none;'><a href="util_helpers.module_js.html#~checkPhotoStatus">checkPhotoStatus</a></li><li data-type='method' style='display: none;'><a href="util_helpers.module_js.html#~checkPonyStatus">checkPonyStatus</a></li><li data-type='method' style='display: none;'><a href="util_helpers.module_js.html#~formatLocationString">formatLocationString</a></li><li data-type='method' style='display: none;'><a href="util_helpers.module_js.html#~formatNPSNumber">formatNPSNumber</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">pages/introduction.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file introduction.js
+ * @description The preliminary page used after the cover page - Will be removed in future documents
+ * @typedef { Object } introductionPage
+ * @property { Array } margin [Left, Top, Right, Bottom]
+ * @property { string } background Background color of page
+ * @property { Array } stack Array of objects, representing stacks of paragraphs
+ * @property { string } pageBreak String holding when pageBreak should be applied
+ * @property { number } fontSize Global font size of document
+ * @module introductionPage.js
+ */
+
+const introductionPage = {
+  columns: [
+    {
+      // alignment: "justify",
+      //       l   T   R  B
+      margin: [67, 0, 67, 0],
+      background: "#EFDEC7",
+      stack: [
+        {
+          text: "\n\n\nIntroduction to the Newfoundland Pony Society Annual Herdbook 2021",
+          style: "header",
+        },
+        { text: "[Preliminary]\n\n", style: "header" },
+        {
+          text: [
+            "This is the first Annual Herdbook of Registered Newfoundland Ponies and is published",
+            " by The Newfoundland Pony Society to be a permanent record of the state of the",
+            " Newfoundland Pony Breed as of the end of a given year and is intended to be published ",
+            "in the first quarter of the following year. We consider the “herd” to include all Registered ",
+            "Ponies, regardless of location.\n\n",
+          ],
+        },
+        {
+          text: [
+            "The Herdbook is mandated by the recently established Registrar’s Manual [found on ",
+            "this website] and includes all ponies registered to December 31, 2021 ending with ",
+            "Registration Number 952.\n\n",
+          ],
+        },
+        {
+          text: [
+            "It is compiled from the most recent Lineage Report with the addition of information ",
+            "from The Newfoundland Pony Society records. The newest features include the last ",
+            "known location of each pony by Province or State as of December 31, 2021 ",
+            "and virtual access to a photograph of the pony as available in cooperation with the ",
+            "owner or former owner. Ancestry Family Trees are accessible directly from the Herdbook by ",
+            "clicking on the pony's name and Descendant tables can be accessed from the Lineage Report ",
+            "on the website.\n\n",
+          ],
+        },
+        {
+          text: [
+            "We believe that the Herdbook will become an important tool in pursuit of the Society's ",
+            "mandate to Promote, Preserve, and Protect the Newfoundland Pony. It will provide a ",
+            "point-in-time compendium of information on the state of the breed and aid in research. ",
+            "It will also provide support and information for breeders and individual owners ",
+            "seeking to breed their pony and be of interest to horse and pony lovers everywhere, ",
+            "particularly Newfoundland Pony lovers.\n\n",
+          ],
+        },
+        {
+          text: [
+            "We are aware that there are ponies eligible for registration that are not yet registered ",
+            "and encourage owners to recognize the importance to the future of the Newfoundland ",
+            "Pony to have all eligible ponies Registered and included in the Herdbook. This is an ",
+            "important goal of The Newfoundland Pony Society in our efforts to preserve and protect ",
+            "the Newfoundland Pony and provides valuable recognition for each individual animal as ",
+            "a Newfoundland Pony.\n\n",
+          ],
+        },
+        {
+          text: [
+            "[IMORTANT NOTE: This Edition of the Herdbook is labelled Preliminary, since we know ",
+            "that our current information on the location of a particular pony may not be accurate, ",
+            "as pony owners may not have notified the Society of a transfer or sale of a Registered Pony. ",
+            "Location listed as UNC means we are uncertain as to the current location of the pony. ",
+            "Similarly with the death or gelding of a Registered Pony. If you have information ",
+            "as to the location or status of a pony as of December 31, 2021, or inconsistent with the information here, ",
+            "please notify the Registrar, Kelly-Power Kean at ",
+            {
+              text: "registrar@newfoundlandpony.com",
+              link: `mailto:registrar@newfoundlandpony.com`,
+              style: "link",
+            },
+            ". After a suitable period to allow for corrections, we will remove the Preliminary designation.]",
+            "\n\n",
+          ],
+        },
+        {
+          text: [
+            "Jack Harris, President    Kelly Power-Kean, Registrar\n\n",
+            "The Newfoundland Pony Society 2022",
+          ],
+          style: "header",
+        },
+      ],
+      pageBreak: "after",
+      fontSize: 12,
+    },
+  ],
+};
+
+exports.introductionPage = introductionPage;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Thu Aug 04 2022 21:55:33 GMT-0230 (Newfoundland Daylight Saving Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>

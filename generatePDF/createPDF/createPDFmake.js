@@ -25,12 +25,12 @@ const {
 /**
  * Creates the PDF document and saves it into ./pdfs with the current date appending the document title
  * @param { PonyList } data
+ * @param { string[] } availablePhotos
  * @returns { void } void
  */
 
-const createPDF = (data) => {
-  const editedData = formatPonyData(JSON.parse(data));
-  // Assign pony data to enter into the table
+const createPDF = (data, availablePhotos) => {
+  const editedData = formatPonyData(JSON.parse(data), availablePhotos);
   const sortedData = editedData
     .sort((a, b) => {
       return b["nps#"] - a["nps#"];

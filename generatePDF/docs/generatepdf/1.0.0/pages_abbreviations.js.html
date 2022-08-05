@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>pages/abbreviations.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/adam-paul952/generate-pdf/tree/master/generatePDF" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Modules</h3><ul><li><a href="abbreviationPage.module_js.html">abbreviationPage.js</a></li><li><a href="documentName.module_js.html">documentName.js</a></li><li><a href="introductionPage.module_js.html">introductionPage.js</a></li><li><a href="module-app.html">app</a></li><li><a href="module-buildTableBody.html">buildTableBody</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-buildTableBody.html#~buildTableBody">buildTableBody</a></li></ul></li><li><a href="module-columnInfo.html">columnInfo</a></li><li><a href="module-connection.html">connection</a></li><li><a href="module-createPDF.html">createPDF</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-createPDF.html#~createPDF">createPDF</a></li></ul></li><li><a href="module-findAll.html">findAll</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-findAll.html#.findAll">findAll</a></li></ul></li><li><a href="module-Pony.html">Pony</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Pony.html#~Pony">Pony</a></li></ul></li><li><a href="module-table.html">table</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-table.html#~table">table</a></li></ul></li><li><a href="module-tableHeader.html">tableHeader</a></li><li><a href="util_formatPonyData.module_js.html">util/formatPonyData.js</a><ul class='methods'><li data-type='method' style='display: none;'><a href="util_formatPonyData.module_js.html#~formatPonyData">formatPonyData</a></li></ul></li><li><a href="util_helpers.module_js.html">util/helpers.js</a><ul class='methods'><li data-type='method' style='display: none;'><a href="util_helpers.module_js.html#~assignPhotoURL">assignPhotoURL</a></li><li data-type='method' style='display: none;'><a href="util_helpers.module_js.html#~assignPonySex">assignPonySex</a></li><li data-type='method' style='display: none;'><a href="util_helpers.module_js.html#~checkPhotoStatus">checkPhotoStatus</a></li><li data-type='method' style='display: none;'><a href="util_helpers.module_js.html#~checkPonyStatus">checkPonyStatus</a></li><li data-type='method' style='display: none;'><a href="util_helpers.module_js.html#~formatLocationString">formatLocationString</a></li><li data-type='method' style='display: none;'><a href="util_helpers.module_js.html#~formatNPSNumber">formatNPSNumber</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">pages/abbreviations.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file abbreviationPage.js
+ * @description This page displays the abbreviations used throughout the document in the columns
+ * @module abbreviationPage.js
+ */
+
+const abbreviationPage = [
+  {
+    text: "Abbreviations used in the Herdbook entries:\n\n\n\n",
+    fontSize: 12,
+    margin: [70, 792 / 3.5, 70, 0],
+  },
+  {
+    columns: [
+      { text: "Status:", width: "20%" },
+      "L = Live, D = Deceased, UNK = Unknown",
+    ],
+    fontSize: 12,
+    margin: [70, 0, 70, 0],
+  },
+  { text: "\n" },
+  {
+    columns: [
+      { text: "NPS#:", width: "20%" },
+      "PQ2, PQ3, etc. = Unregistered Pony whose parentage qualifies them for registration but are unregistered as of the date of publication",
+    ],
+    fontSize: 12,
+    margin: [70, 0, 70, 0],
+  },
+  { text: "\n" },
+  {
+    columns: [
+      { text: "Sex:", width: "20%" },
+      "S = Stallion, C = Colt (ungelded male pony under 4 years), Gelding = gelded male pony, M = Mare, F = Filly (female pony under 4 years)",
+    ],
+    fontSize: 12,
+    margin: [70, 0, 70, 0],
+  },
+  { text: "\n" },
+  {
+    columns: [
+      { text: "Location:", width: "20%" },
+      "NL, ME, etc. = Two-Letter Abbreviation for Province or State, UNC = Uncertain",
+    ],
+    pageBreak: "after",
+    fontSize: 12,
+    margin: [70, 0, 70, 0],
+  },
+];
+
+exports.abbreviationPage = abbreviationPage;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Thu Aug 04 2022 21:55:33 GMT-0230 (Newfoundland Daylight Saving Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>

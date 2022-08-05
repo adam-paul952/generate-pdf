@@ -9,7 +9,7 @@ const sql = require("./db");
 /**
  * Constructor for Pony object
  */
-const Pony = (pony) => {
+const Pony = function (pony) {
   this.id_number = pony.id_number;
   this.pony_status = pony.pony_status;
   this.pony_nps_id_number = pony.pony_nps_id_number;
@@ -42,4 +42,4 @@ Pony.getAll = (result) => {
   });
 };
 
-exports.Pony = Pony;
+module.exports = Pony;
